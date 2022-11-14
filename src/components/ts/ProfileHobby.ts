@@ -27,7 +27,7 @@ export default class ProfileName extends BaseMethod {
             inputLabel: '趣味',
             inputValue: '',
         }).then(result => {
-            form.push({ label: '趣味', value: result.value });
+            form.push({ id: 'setting-hobby', label: '趣味', value: result.value });
         });
 
         return form;

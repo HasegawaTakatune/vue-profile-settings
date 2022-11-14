@@ -8,7 +8,7 @@ export default class ProfileName extends BaseMethod {
             inputLabel: 'ニックネーム',
             inputValue: '',
         }).then(result => {
-            form.push({ label: 'ニックネーム', value: result.value });
+            form.push({ id: 'setting-name', label: 'ニックネーム', value: result.value });
         });
 
         return form;

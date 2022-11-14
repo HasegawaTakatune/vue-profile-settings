@@ -8,7 +8,7 @@ export default class ProfileSelfIntroduction extends BaseMethod {
             inputLabel: '自己紹介',
             inputValue: '',
         }).then(result => {
-            form.push({ label: '自己紹介', value: result.value });
+            form.push({ id: 'setting-self-introduction', label: '自己紹介', value: result.value });
         });
 
         return form;

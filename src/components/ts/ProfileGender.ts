@@ -20,7 +20,7 @@ export default class ProfileGender extends BaseMethod {
                 }
             }
         }).then(result => {
-            form.push({ label: '性別', value: result.value })
+            form.push({ id: 'setting-gender', label: '性別', value: result.value })
         });
 
         return form;

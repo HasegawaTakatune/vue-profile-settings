@@ -16,7 +16,7 @@ export default class ProfileBirthday extends BaseMethod {
                 return result?.value ?? '';
             }
         }).then(result => {
-            form.push({ label: '生年月日', value: result.value });
+            form.push({ id: 'setting-birthday', label: '生年月日', value: result.value });
         });
 
         return form;

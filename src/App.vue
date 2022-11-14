@@ -2,15 +2,13 @@
 import { ref } from "vue";
 import Draggable from "vuedraggable";
 
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
-
 import type BaseMethod from "./components/ts/BaseMethod";
 import ProfileName from "./components/ts/ProfileName";
 import ProfileSelfIntroduction from "./components/ts/ProfileSelfIntroduction";
 import ProfileBirthday from "./components/ts/ProfileBirthday";
 import ProfileGender from "./components/ts/ProfileGender";
 import ProfileHobby from "./components/ts/ProfileHobby";
+import ProfilePreview from "./components/ts/ProfilePreview";
 
 interface Option {
   id: string;
@@ -54,6 +52,12 @@ const options = ref<Array<Option>>([
     method: new ProfileHobby(),
     disabled: false,
   },
+  {
+    id: "setting-preview",
+    label: "プレビュー",
+    method: new ProfilePreview(),
+    disabled: false,
+  },
 ]);
 
 const onSelectMethod = (method: Option) => {
@@ -77,29 +81,19 @@ const onPlaySettings = async () => {
       form.value = value;
     });
   }
-
-  console.log(form.value);
 };
 </script>
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <div class="greetings">
+        <h1 class="green">Vue profile setting</h1>
+      </div>
     </div>
   </header>
 
   <main>
-    <TheWelcome />
-
     <div>
       <button
         v-for="value in options"
@@ -162,5 +156,21 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+
+  .greetings h1,
+  .greetings h3 {
+    text-align: left;
+  }
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  top: -10px;
+}
+
+.greetings h1,
+.greetings h3 {
+  text-align: center;
 }
 </style>
