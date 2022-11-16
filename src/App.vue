@@ -100,11 +100,11 @@ const onPlaySettings = async () => {
       <button
         v-for="value in options"
         :key="value.id"
-        class="css-button-sliding-to-left--green"
+        class="button_line004"
         :disabled="value.disabled"
         @click="onSelectaction(value)"
       >
-        {{ value.label }}
+        <span> {{ value.label }}</span>
       </button>
     </div>
     <ol>
@@ -129,8 +129,8 @@ const onPlaySettings = async () => {
         </template>
       </Draggable>
     </ol>
-    <button class="css-button-sliding-to-left--green" @click="onPlaySettings">
-      スタート
+    <button class="button_line004" @click="onPlaySettings">
+      <span>スタート</span>
     </button>
   </main>
 </template>
@@ -196,38 +196,57 @@ ol li {
 }
 
 /* Button CSS */
-.css-button-sliding-to-left--green {
-  min-width: 130px;
-  height: 40px;
-  padding: 5px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.button_line004 {
+  border: none;
+  background-color: #fff0;
+
+  margin: 10px;
+}
+.button_line004 span {
   position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 5px;
-  z-index: 0;
-  background: #fff0;
-  overflow: hidden;
-  border: 2px solid hsla(160, 100%, 37%, 1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 200px;
+  padding: 10px 25px;
   color: hsla(160, 100%, 37%, 1);
+  background-color: fff0;
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
 }
-.css-button-sliding-to-left--green:hover {
-  color: #181818;
-}
-.css-button-sliding-to-left--green:hover:after {
-  width: 100%;
-}
-.css-button-sliding-to-left--green:after {
+.button_line004 span:before,
+.button_line004 span:after {
   content: "";
+  width: 18px;
+  height: 18px;
+  border-color: hsla(160, 100%, 37%, 1);
+  box-sizing: border-box;
+  border-style: solid;
+  display: block;
   position: absolute;
-  z-index: -1;
-  transition: all 0.3s ease;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 100%;
-  background: hsla(160, 100%, 37%, 1);
+  transition: all 0.3s ease-in-out;
+}
+.button_line004 span:before {
+  top: -6px;
+  left: -6px;
+  border-width: 2px 0 0 2px;
+  z-index: 5;
+}
+.button_line004 span:after {
+  bottom: -6px;
+  right: -6px;
+  border-width: 0 2px 2px 0;
+}
+.button_line004 span:hover:before,
+.button_line004 span:hover:after {
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  border-color: hsla(160, 100%, 37%, 1);
+}
+.button_line004 span:hover {
+  color: #313131;
+  background-color: hsla(160, 100%, 37%, 1);
+  border-color: hsla(160, 100%, 37%, 1);
 }
 </style>

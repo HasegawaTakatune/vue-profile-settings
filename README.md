@@ -39,5 +39,5 @@ npm run dev
 npm run build
 ```
 
-[ボタンスタイル参考](https://markodenic.com/tools/buttons-generator/)
+[ボタンスタイル参考](https://dubdesign.net/download/html-css/button-design/#i-13)
 [リストスタイル参考](https://saruwakakun.com/html-css/reference/ul-ol-li-design)
