@@ -38,3 +38,6 @@ npm run dev
 ```sh
 npm run build
 ```
+
+[ボタンスタイル参考](https://markodenic.com/tools/buttons-generator/)
+[リストスタイル参考](https://saruwakakun.com/html-css/reference/ul-ol-li-design)
