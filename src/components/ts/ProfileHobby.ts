@@ -1,7 +1,7 @@
 import swal from 'sweetalert2';
-import BaseMethod from "./BaseMethod";
+import BaseAction from "./BaseAction";
 
-export default class ProfileName extends BaseMethod {
+export default class ProfileHobby extends BaseAction {
     public async action(form: Array<any>): Promise<any> {
         const inputOptions = {
             'インドア': {

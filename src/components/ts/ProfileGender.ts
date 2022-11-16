@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
-import BaseMethod from "./BaseMethod";
+import BaseAction from "./BaseAction";
 
-export default class ProfileGender extends BaseMethod {
+export default class ProfileGender extends BaseAction {
 
     public async action(form: Array<any>): Promise<any> {
         const inputOptions = {

@@ -1,3 +1,3 @@
-export default abstract class BaseMethod {
+export default abstract class BaseAction {
     public abstract action(form: any): Promise<any>;
 }

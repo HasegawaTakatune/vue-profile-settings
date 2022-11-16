@@ -1,7 +1,7 @@
 import swal from 'sweetalert2';
-import BaseMethod from "./BaseMethod";
+import BaseAction from "./BaseAction";
 
-export default class ProfileBirthday extends BaseMethod {
+export default class ProfileBirthday extends BaseAction {
 
     public async action(form: Array<any>): Promise<any> {
         const date = new Date();
