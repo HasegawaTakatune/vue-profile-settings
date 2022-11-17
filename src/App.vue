@@ -96,72 +96,52 @@ const onPlaySettings = async () => {
   </header>
 
   <main>
-    <div>
-      <button
-        v-for="value in options"
-        :key="value.id"
-        class="button_line004"
-        :disabled="value.disabled"
-        @click="onSelectaction(value)"
-      >
-        <span> {{ value.label }}</span>
-      </button>
+    <div class="profile-setting">
+      <div class="action-buttons">
+        <button
+          v-for="value in options"
+          :key="value.id"
+          class="button_line004"
+          :disabled="value.disabled"
+          @click="onSelectaction(value)"
+        >
+          <span> {{ value.label }}</span>
+        </button>
+        <button class="button_line004 start-button" @click="onPlaySettings">
+          <span>スタート</span>
+        </button>
+      </div>
+
+      <div>
+        <ol>
+          <Draggable
+            v-model="actions"
+            group="people"
+            item-key="id"
+            @start="drag = true"
+            @end="drag = false"
+          >
+            <template #item="{ element }">
+              <li>
+                {{ element.label }}
+                <img
+                  src="@/assets/cross.svg"
+                  width="20"
+                  alt="X"
+                  style="top: 5px"
+                  @click="onDeleteaction(element.id)"
+                />
+              </li>
+            </template>
+          </Draggable>
+        </ol>
+      </div>
     </div>
-    <ol>
-      <Draggable
-        v-model="actions"
-        group="people"
-        item-key="id"
-        @start="drag = true"
-        @end="drag = false"
-      >
-        <template #item="{ element }">
-          <li>
-            {{ element.label }}
-            <img
-              src="@/assets/cross.svg"
-              width="20"
-              alt="X"
-              style="top: 5px"
-              @click="onDeleteaction(element.id)"
-            />
-          </li>
-        </template>
-      </Draggable>
-    </ol>
-    <button class="button_line004" @click="onPlaySettings">
-      <span>スタート</span>
-    </button>
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
   .greetings h1,
   .greetings h3 {
     text-align: left;
@@ -177,6 +157,19 @@ h1 {
 .greetings h1,
 .greetings h3 {
   text-align: center;
+}
+
+.profile-setting {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.profile-setting .action-buttons {
+  display: inline-grid;
+}
+
+.profile-setting .start-button {
+  margin-top: 100px;
 }
 
 /* List CSS */
