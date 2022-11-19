@@ -41,3 +41,7 @@ npm run build
 
 [ボタンスタイル参考](https://dubdesign.net/download/html-css/button-design/#i-13)
 [リストスタイル参考](https://saruwakakun.com/html-css/reference/ul-ol-li-design)
+
+[Vue Draggable](https://github.com/SortableJS/Vue.Draggable)
+[SweetAlert2](https://github.com/sweetalert2/sweetalert2)
+[UUIDJS](https://github.com/LiosK/UUID.js)
