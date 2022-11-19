@@ -1,14 +1,14 @@
-@import './base.css';
-
-body{
-  margin-top: 50px;
-}
+@import "./base.css";
 
 #app {
   font-weight: normal;
 
   width: 50%;
   margin: 0 auto;
+}
+
+header{
+  padding-top: 30px;
 }
 
 a,
