@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import UUID from "uuidjs";
 import Draggable from "vuedraggable";
 
 import type BaseAction from "./components/ts/BaseAction";
@@ -17,8 +18,16 @@ interface Option {
   disabled: boolean;
 }
 
+interface Action {
+  key: string;
+  id: string;
+  label: string;
+  action: BaseAction;
+  disabled: boolean;
+}
+
 const form = ref<Array<any>>([]);
-const actions = ref<Array<Option>>([]);
+const actions = ref<Array<Action>>([]);
 const drag = ref(true);
 
 const options = ref<Array<Option>>([
@@ -65,12 +74,13 @@ const onSelectaction = (action: Option) => {
   if (action.id !== "setting-preview") {
     options.value[index].disabled = true;
   }
-  actions.value.push(action);
+  actions.value.push({ key: UUID.generate(), ...action });
 };
 
-const onDeleteaction = (id: string) => {
-  let index = actions.value.findIndex((value) => value.id === id);
-  actions.value.splice(index, 1);
+const onDeleteaction = (key: string) => {
+  let index = actions.value.findIndex((value) => value.key === key);
+  let deleted = actions.value.splice(index, 1);
+  let id = deleted[0].id;
 
   index = options.value.findIndex((value) => value.id === id);
   options.value[index].disabled = false;
@@ -102,6 +112,7 @@ const onPlaySettings = async () => {
           v-for="value in options"
           :key="value.id"
           class="button_line004"
+          :class="{ disabled: value.disabled }"
           :disabled="value.disabled"
           @click="onSelectaction(value)"
         >
@@ -117,7 +128,7 @@ const onPlaySettings = async () => {
           <Draggable
             v-model="actions"
             group="people"
-            item-key="id"
+            item-key="key"
             @start="drag = true"
             @end="drag = false"
           >
@@ -129,7 +140,7 @@ const onPlaySettings = async () => {
                   width="20"
                   alt="X"
                   style="top: 5px"
-                  @click="onDeleteaction(element.id)"
+                  @click="onDeleteaction(element.key)"
                 />
               </li>
             </template>
@@ -208,6 +219,18 @@ ol li {
   transition: 0.3s ease-in-out;
   font-weight: 600;
 }
+.button_line004.disabled span,
+.button_line004.disabled span:hover {
+  color: hsl(160deg 10% 20%);
+  background-color: #fff0;
+}
+.button_line004.disabled span:before,
+.button_line004.disabled span:hover:before,
+.button_line004.disabled span:after,
+.button_line004.disabled span:hover:after {
+  border-color: hsl(160deg 10% 20%);
+}
+
 .button_line004 span:before,
 .button_line004 span:after {
   content: "";
