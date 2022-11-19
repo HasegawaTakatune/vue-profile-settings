@@ -10,6 +10,7 @@ export default class ProfileGender extends BaseAction {
             'other': 'その他'
         };
 
+        // @ts-ignore
         await Swal.fire({
             title: 'Select color',
             input: 'radio',
