@@ -3,7 +3,8 @@
 ## 概要  
 各種プロフィール設定モーダルの表示順をD＆Dで切り替えれるようにするサンプル  
 キューリストでプロフィール選択モーダルを格納している。  
-  
+[![vue profile settings](http://img.youtube.com/vi/h4q3dZFLpb0/maxresdefault.jpg)](https://youtu.be/h4q3dZFLpb0)
+
 ### セットアップ  
 ```sh
 npm install
