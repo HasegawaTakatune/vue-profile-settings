@@ -4,7 +4,7 @@ import BaseAction from "./BaseAction";
 export default class ProfileHobby extends BaseAction {
     public async action(form: Array<any>): Promise<any> {
         const inputOptions = {
-            '': null,
+            none: '',
             'インドア': {
                 book: '読書',
                 cooking: '料理',
